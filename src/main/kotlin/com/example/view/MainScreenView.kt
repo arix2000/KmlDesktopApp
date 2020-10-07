@@ -1,9 +1,10 @@
 package com.example.view
 
-import com.example.Controller
-import com.example.Styles
+import com.example.controllers.ProfileController
+import com.example.stylesheets.StylesGlobal
 import javafx.scene.control.Button
 import javafx.scene.image.Image
+import javafx.scene.layout.VBox
 import tornadofx.*
 
 class MainScreenView() : View("Panel użytkownika") {
@@ -15,52 +16,63 @@ class MainScreenView() : View("Panel użytkownika") {
         set(value) {
             selectChosen(value)
         }
-    private val controller = Controller()
+    private val controller = ProfileController()
+    lateinit var container: VBox
 
 
     override val root = hbox {
 
         vbox {
-            addClass(Styles.listMenu)
+            addClass(StylesGlobal.listMenu)
 
             profileBtn = button("Profil") {
-                addClass(Styles.menuItems)
+                addClass(StylesGlobal.menuItems)
                 action { selectedButton = buttonList[0] }
                 imageview(Image("profileIcon.png"))
             }
             addingWorkTimeBtn = button("Dodawanie godzin") {
-                addClass(Styles.menuItems)
+                addClass(StylesGlobal.menuItems)
                 action { selectedButton = buttonList[1] }
                 imageview(Image("addWorkTime.png"))
-
-
             }
 
             passwordChangingBtn = button("Zmiana hasła") {
-                addClass(Styles.menuItems)
+                addClass(StylesGlobal.menuItems)
                 action { selectedButton = buttonList[2] }
                 imageview(Image("changePassword.png"))
             }
 
         }
 
-        add(find<ProfileFragment>())
+        container = vbox {
+
+
+        }
+
+
 
         selectedButton = buttonList[0]
+
     }
 
     private fun selectChosen(button: String) {
         unMarkAll()
         when (button) {
-            buttonList[0] -> mark(profileBtn)
-            buttonList[1] -> mark(addingWorkTimeBtn)
-            buttonList[2] -> mark(passwordChangingBtn)
+            buttonList[0] -> {
+                mark(profileBtn); container.replaceChildren(ProfileFragment())
+            }
+            buttonList[1] -> {
+                mark(addingWorkTimeBtn); container.replaceChildren(WorkTimerFragment())
+            }
+            buttonList[2] -> {
+                mark(passwordChangingBtn); container.replaceChildren(ManagePasswordFragment())
+            }
         }
     }
 
     private fun mark(button: Button) {
-        button.removeClass(Styles.menuItems)
-        button.addClass(Styles.menuItemsSelected)
+        button.removeClass(StylesGlobal.menuItems)
+        button.addClass(StylesGlobal.menuItemsSelected)
     }
 
     private fun unMarkAll() {
@@ -70,8 +82,8 @@ class MainScreenView() : View("Panel użytkownika") {
     }
 
     private fun unMark(button: Button) {
-        button.removeClass(Styles.menuItemsSelected)
-        button.addClass(Styles.menuItems)
+        button.removeClass(StylesGlobal.menuItemsSelected)
+        button.addClass(StylesGlobal.menuItems)
     }
 
 }

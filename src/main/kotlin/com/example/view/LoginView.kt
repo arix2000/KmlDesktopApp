@@ -1,6 +1,6 @@
 package com.example.view
 
-import com.example.Styles
+import com.example.stylesheets.StylesGlobal
 import javafx.beans.property.SimpleStringProperty
 import javafx.scene.text.Text
 import tornadofx.*
@@ -12,7 +12,7 @@ class LoginView : View("KmlDesktopApp - Logowanie") {
     val password = SimpleStringProperty()
 
     override val root = vbox {
-        addClass(Styles.loginScreenMain)
+        addClass(StylesGlobal.primaryStage)
 
         imageview("logo.png") {
             fitHeight = 150.0
@@ -25,24 +25,24 @@ class LoginView : View("KmlDesktopApp - Logowanie") {
         textfield(login) {
             promptText = "Login"
 
-            addClass(Styles.textFields)
+            addClass(StylesGlobal.textFields)
         }
 
         passwordfield(password) {
             promptText = "Hasło"
-            addClass(Styles.textFields)
+            addClass(StylesGlobal.textFields)
         }
 
 
         button("Zaloguj") {
-            addClass(Styles.buttons)
+            addClass(StylesGlobal.buttons)
             action {
                 replaceWith(MainScreenView::class, ViewTransition.Slide(0.3.seconds, ViewTransition.Direction.LEFT))
 
             }
         }
 
-        text = text { addClass(Styles.captions) }
+        text = text { addClass(StylesGlobal.captions) }
 
 
     }

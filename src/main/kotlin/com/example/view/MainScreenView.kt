@@ -13,15 +13,12 @@ class MainScreenView() : View("Panel użytkownika") {
     lateinit var addingWorkTimeBtn: Button
     lateinit var passwordChangingBtn: Button
     private var selectedButton: String = ""
-        set(value) {
-            selectChosen(value)
-        }
-    private val controller = ProfileController()
+        set(value) { selectChosen(value) }
     lateinit var container: VBox
 
 
     override val root = hbox {
-
+        primaryStage.minWidth = 500.0
         vbox {
             addClass(StylesGlobal.listMenu)
 
@@ -45,11 +42,7 @@ class MainScreenView() : View("Panel użytkownika") {
         }
 
         container = vbox {
-
-
         }
-
-
 
         selectedButton = buttonList[0]
 

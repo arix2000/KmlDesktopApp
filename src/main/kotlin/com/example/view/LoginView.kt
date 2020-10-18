@@ -36,9 +36,9 @@ class LoginView : View("KmlDesktopApp - Logowanie") {
 
         button("Zaloguj") {
             addClass(StylesGlobal.buttons)
+
             action {
                 replaceWith(MainScreenView::class, ViewTransition.Slide(0.3.seconds, ViewTransition.Direction.LEFT))
-
             }
         }
 

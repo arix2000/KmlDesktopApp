@@ -1,13 +1,12 @@
 package com.example.stylesheets
 
+import com.example.stylesheets.AppColors.Companion.ACCENT
 import com.example.stylesheets.AppColors.Companion.PRIMARY
 import com.example.stylesheets.AppColors.Companion.PRIMARY_DARK
-import com.example.stylesheets.AppColors.Companion.ACCENT
 import com.example.stylesheets.AppColors.Companion.TEXT_FIELD_FILL
 import com.example.stylesheets.AppColors.Companion.WHITE
 import javafx.geometry.Pos
 import javafx.scene.Cursor
-import javafx.scene.paint.Color
 import javafx.scene.paint.Paint
 import javafx.scene.text.FontWeight
 import tornadofx.*
@@ -139,6 +138,8 @@ class StylesGlobal : Stylesheet() {
             prefWidth = 664.px
             prefColumnCount = 3
             padding = box(8.px)
+            backgroundRadius = mainRadius
+            backgroundColor = multi(PRIMARY_DARK)
         }
 
         profileSpacers {
@@ -155,7 +156,6 @@ class StylesGlobal : Stylesheet() {
             padding = box(12.px)
             spacing = 12.px
             fontWeight = FontWeight.BOLD
-
         }
 
 

@@ -1,6 +1,7 @@
 package com.example.controllers;
 
 import com.example.GlobalVars
+import com.example.externalDbOperations.DbGetUserData
 import javafx.scene.image.Image
 import javafx.stage.FileChooser
 import javafx.stage.Window
@@ -28,16 +29,22 @@ class ProfileController {
     fun decideAboutImage(): Image? =
         if (File(GlobalVars.PHOTO_FILE_NAME).exists()) {
             Image(FileInputStream(GlobalVars.PHOTO_FILE_NAME))
-        } else
+        } else {
             Image("logo.png")
+        }
+
 
     fun logIn(login: String, password: String): Boolean {
         TODO("log in")
     }
 
     fun getUserInfoFromDatabase(): List<String> {
-        TODO("DbGetUserData")
+        val dbGetUserData = DbGetUserData()
+        dbGetUserData.start()
+        return dbGetUserData.result.split(";")
     }
+
+    fun formatToShow(sections:String) = sections.replace("-", ",")
 
 
 }

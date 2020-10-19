@@ -11,6 +11,10 @@ repositories {
     mavenCentral()
 }
 
+test {
+    useJUnitPlatform()
+}
+
 application {
     mainClassName = "com.example.MainKt"
 }
@@ -19,6 +23,8 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation "no.tornado:tornadofx:$tornadofx_version"
     implementation 'org.openjfx:javafx-plugin:0.0.7'
+    implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.1.0"
     testImplementation "org.jetbrains.kotlin:kotlin-test-junit"
 }
 

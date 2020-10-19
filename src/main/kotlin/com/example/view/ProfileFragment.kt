@@ -1,6 +1,8 @@
 package com.example.view
 
 import com.example.controllers.ProfileController
+import com.example.stylesheets.AppColors.Companion.BLACK
+import com.example.stylesheets.AppColors.Companion.PRIMARY
 import com.example.stylesheets.AppColors.Companion.PRIMARY_DARK
 import com.example.stylesheets.StylesGlobal
 import javafx.beans.property.SimpleStringProperty
@@ -11,11 +13,18 @@ import javafx.geometry.Pos
 import javafx.scene.image.Image
 import javafx.scene.layout.*
 import javafx.scene.paint.Paint
+import javafx.scene.shape.Shape
+import javafx.scene.text.FontWeight
 import tornadofx.*
 
 class ProfileFragment : Fragment() {
 
     private val controller = ProfileController()
+    var userInfo:List<String>
+    init {
+         userInfo= controller.getUserInfoFromDatabase()
+    }
+
 
     override val root = vbox {
         paddingAll = 10.0
@@ -37,11 +46,11 @@ class ProfileFragment : Fragment() {
                 spacing = 30.0
                 alignment = Pos.CENTER
 
-                label("Kazimiesz Kowalewski") {
+                label(userInfo[0]+" "+userInfo[1]) {
                     addClass(StylesGlobal.profileMainLabels)
                 }
 
-                label("np. wolontariusz") {
+                label(userInfo[5]) {
                     addClass(StylesGlobal.profileMainLabels)
                 }
             }
@@ -61,7 +70,7 @@ class ProfileFragment : Fragment() {
                     addClass(StylesGlobal.profileLabels)
                 }
 
-                label("joinYear") {
+                label(userInfo[2]) {
                     gridpaneConstraints { fillWidth = true }
                     addClass(StylesGlobal.profileValues)
                 }
@@ -85,7 +94,7 @@ class ProfileFragment : Fragment() {
                     addClass(StylesGlobal.profileLabels)
                 }
 
-                label("workTimeSeason") {
+                label(userInfo[3]+"h") {
                     gridpaneConstraints { fillWidth = true }
                     addClass(StylesGlobal.profileValues)
                 }
@@ -102,7 +111,7 @@ class ProfileFragment : Fragment() {
                     addClass(StylesGlobal.profileLabels)
                 }
 
-                label("workTimeMonth") {
+                label(userInfo[6]+"h") {
                     gridpaneConstraints { fillWidth = true }
                     addClass(StylesGlobal.profileValues)
                 }
@@ -114,9 +123,15 @@ class ProfileFragment : Fragment() {
                     gridpaneConstraints { columnSpan = 2 }
                 }
             }
+
+            row {
+                label(userInfo[4]) {
+                    addClass(StylesGlobal.profileValues)
+                    style { fontWeight = FontWeight.MEDIUM; wrapText = true }
+                    gridpaneConstraints { columnSpan = 3; useMaxWidth = true }
+                }
+            }
         }
-
-
     }
 }
 

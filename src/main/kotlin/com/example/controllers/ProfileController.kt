@@ -44,7 +44,16 @@ class ProfileController {
         return dbGetUserData.result.split(";")
     }
 
-    fun formatToShow(sections:String) = sections.replace("-", ",")
+    fun formatToShow(sections: String): String {
+
+        var changedSection = sections.replace("-".toRegex(), ",")
+
+        if (changedSection.contains("Wolontariusz") && changedSection.contains("Lider"))
+            changedSection = "${changedSection.substring(0, changedSection.indexOf("Wolontariusz"))} \n\n" +
+             changedSection.substring(changedSection.indexOf("Wolontariusz")).trimIndent()
+
+        return changedSection
+    }
 
 
 }

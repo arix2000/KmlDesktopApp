@@ -125,7 +125,7 @@ class ProfileFragment : Fragment() {
             }
 
             row {
-                label(userInfo[4]) {
+                label(controller.formatToShow(userInfo[4])) {
                     addClass(StylesGlobal.profileValues)
                     style { fontWeight = FontWeight.MEDIUM; wrapText = true }
                     gridpaneConstraints { columnSpan = 3; useMaxWidth = true }

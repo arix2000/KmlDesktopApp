@@ -7,7 +7,7 @@ class GlobalVars {
         const val PHOTO_FILE_NAME = "profilePhoto.png"
 
         @kotlin.jvm.JvmField
-        var loginId: Int = 1
+        var loginId: Int = 9
 
         @kotlin.jvm.JvmField
         var firstName:String = ""

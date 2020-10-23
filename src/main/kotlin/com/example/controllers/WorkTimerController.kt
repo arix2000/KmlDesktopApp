@@ -37,15 +37,11 @@ class WorkTimerController {
     }
 
     fun validate(work: Work): String {
-
-        return if (work.workName.trim().isEmpty() or work.workDescription.trim().isEmpty())
-            "Nazwa lub opis zadania jest pusty."
-        else if (!work.hours.isInt() or !work.minutes.isInt())
-            "Czas musi być wyrażony w liczbach."
-        else if (work.minutes.toInt() > 60)
-            "nie może być więcej niż 60min"
-        else
-            VALIDATION_SUCCESSFUL
-
+        return when {
+            work.workName.trim().isEmpty() or work.workDescription.trim().isEmpty() -> "Nazwa lub opis zadania jest pusty."
+            !work.hours.isInt() or!work.minutes.isInt() -> "Czas musi być wyrażony w liczbach."
+            work.minutes.toInt() > 60 -> "nie może być więcej niż 60min"
+            else -> VALIDATION_SUCCESSFUL
+        }
     }
 }

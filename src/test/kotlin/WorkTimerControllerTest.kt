@@ -10,21 +10,21 @@ internal class WorkTimerControllerTest {
 
     @Test
     fun validate() {
-        var work = Work("Praca nad czymś konkretnym", "testowy opis", "30", "60")
-        var result = controller.validate(work)
+
+        singleValidateEquals(Work("Praca nad czymś konkretnym", "testowy opis", "30", "60"))
+        singleValidateEquals(Work("Praca nad czymś konkretnym", "testowy opis", "0", "0"))
+        singleValidateNotEquals(Work("", "yay", "12", "39"))
+        singleValidateNotEquals(Work("", "yay", "0", "61"))
+    }
+    private fun singleValidateEquals(work: Work)
+    {
+        val result = controller.validate(work)
         assertEquals(WorkTimerController.VALIDATION_SUCCESSFUL, result)
+    }
 
-        work = Work("Praca nad czymś konkretnym", "testowy opis", "0", "0")
-        result = controller.validate(work)
-        assertEquals(WorkTimerController.VALIDATION_SUCCESSFUL, result)
-
-        work = Work("", "yay", "0", "0")
-        result = controller.validate(work)
+    private fun singleValidateNotEquals(work: Work)
+    {
+        val result = controller.validate(work)
         assertNotEquals(WorkTimerController.VALIDATION_SUCCESSFUL, result)
-
-        work = Work("", "yay", "0", "61")
-        result = controller.validate(work)
-        assertNotEquals(WorkTimerController.VALIDATION_SUCCESSFUL, result)
-
     }
 }

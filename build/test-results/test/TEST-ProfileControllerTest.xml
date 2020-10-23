@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ProfileControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-19T14:21:29" hostname="arek-Acer-Aspire-5" time="0.264">
-  <properties/>
-  <testcase name="getUserInfoFromDatabase()" classname="ProfileControllerTest" time="0.264"/>
-  <system-out><![CDATA[[Ola, Gołąb, 2019, 0, Lider sekcji instagram Wolontariusz w sekcji:  wystąpienia publiczne- poszukiwanie sponsorów- sekcja medialna- marzycielska- dekoracyjna- promocja- integracyjna- animacyjna- sekcja rozwojowa, Lider, 0]
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

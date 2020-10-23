@@ -20,9 +20,11 @@ import tornadofx.*
 class ProfileFragment : Fragment() {
 
     private val controller = ProfileController()
-    var userInfo:List<String>
+    private var userInfo: List<String>
+
     init {
-         userInfo= controller.getUserInfoFromDatabase()
+        userInfo = controller.getUserInfoFromDatabase()
+        controller.setUserName(userInfo[0], userInfo[1])
     }
 
 
@@ -46,7 +48,7 @@ class ProfileFragment : Fragment() {
                 spacing = 30.0
                 alignment = Pos.CENTER
 
-                label(userInfo[0]+" "+userInfo[1]) {
+                label(userInfo[0] + " " + userInfo[1]) {
                     addClass(StylesGlobal.profileMainLabels)
                 }
 
@@ -94,7 +96,7 @@ class ProfileFragment : Fragment() {
                     addClass(StylesGlobal.profileLabels)
                 }
 
-                label(userInfo[3]+"h") {
+                label(userInfo[3] + "h") {
                     gridpaneConstraints { fillWidth = true }
                     addClass(StylesGlobal.profileValues)
                 }
@@ -111,7 +113,7 @@ class ProfileFragment : Fragment() {
                     addClass(StylesGlobal.profileLabels)
                 }
 
-                label(userInfo[6]+"h") {
+                label(userInfo[6] + "h") {
                     gridpaneConstraints { fillWidth = true }
                     addClass(StylesGlobal.profileValues)
                 }

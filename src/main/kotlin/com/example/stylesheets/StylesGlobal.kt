@@ -29,8 +29,8 @@ class StylesGlobal : Stylesheet() {
         val profileGridPane by cssclass()
         val profileValues by cssclass()
         val profileIcons by cssclass()
-        val profileSpacers by cssclass()
         val profileNestedLabels by cssclass()
+        val workTimerSpacers by cssclass()
     }
 
     init {
@@ -57,7 +57,6 @@ class StylesGlobal : Stylesheet() {
 
         textFields {
             padding = box(10.px)
-            minWidth = 100.px
             maxWidth = 300.px
             textFill = WHITE
             textBoxBorder = PRIMARY_DARK
@@ -70,6 +69,7 @@ class StylesGlobal : Stylesheet() {
 
         captions {
             fontSize = 15.px
+            fill = WHITE
         }
 
         menuItems {
@@ -142,12 +142,6 @@ class StylesGlobal : Stylesheet() {
             backgroundColor = multi(PRIMARY_DARK)
         }
 
-        profileSpacers {
-            backgroundColor = multi(PRIMARY_DARK)
-            backgroundRadius = mainRadius
-            prefHeight = 1.px
-        }
-
         profileNestedLabels {
             fontSize = 17.px
             prefWidth = 332.px
@@ -156,6 +150,10 @@ class StylesGlobal : Stylesheet() {
             padding = box(12.px)
             spacing = 12.px
             fontWeight = FontWeight.BOLD
+        }
+
+        workTimerSpacers {
+            maxHeight = 20.px
         }
 
 

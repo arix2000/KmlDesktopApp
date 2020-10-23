@@ -9,8 +9,10 @@ import java.net.HttpURLConnection
 import java.net.URLEncoder
 import kotlin.math.roundToInt
 
-class DbSendWork(var workName: String, var workDescription: String, var firstName: String,
-                 var lastName: String, var minutes: Int, var hours: Int) : ExternalDbHelper() {
+class DbSendWork(
+    var workName: String, var workDescription: String, var firstName: String,
+    var lastName: String, var minutes: Int, var hours: Int
+) : ExternalDbHelper() {
 
     private val fileName = "updateCzasPracy.php"
     var mResult = false
@@ -68,11 +70,7 @@ class DbSendWork(var workName: String, var workDescription: String, var firstNam
 
     val result: Boolean
         get() {
-            try {
-                this.join()
-            } catch (e: InterruptedException) {
-                println("getResult: " + e.message)
-            }
+            this.join()
             return mResult
         }
 }

@@ -8,8 +8,8 @@ import tornadofx.*
 class LoginView : View("KmlDesktopApp - Logowanie") {
 
     lateinit var text: Text
-    val login = SimpleStringProperty()
-    val password = SimpleStringProperty()
+    private val login = SimpleStringProperty()
+    private val password = SimpleStringProperty()
 
     override val root = vbox {
         addClass(StylesGlobal.primaryStage)
@@ -34,7 +34,7 @@ class LoginView : View("KmlDesktopApp - Logowanie") {
         }
 
 
-        button("Zaloguj") {
+        button("ZALOGUJ") {
             addClass(StylesGlobal.buttons)
 
             action {

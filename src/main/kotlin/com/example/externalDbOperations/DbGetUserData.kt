@@ -11,7 +11,7 @@ class DbGetUserData : ExternalDbHelper() {
     private val fileName = "getDataAboutUser.php"
     var result: String = ""
         get() {
-            waitForResult()
+            this.join()
             return field
         }
 
@@ -37,14 +37,6 @@ class DbGetUserData : ExternalDbHelper() {
         writer.flush()
         writer.close()
         outStream.close()
-    }
-
-    private fun waitForResult() {
-        try {
-            this.join()
-        } catch (e: InterruptedException) {
-            println("getResult: " + e.message)
-        }
     }
 
 }

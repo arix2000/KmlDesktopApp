@@ -1,6 +1,5 @@
 package com.example.view
 
-import com.example.controllers.ProfileController
 import com.example.stylesheets.StylesGlobal
 import javafx.scene.control.Button
 import javafx.scene.image.Image
@@ -37,12 +36,13 @@ class MainScreenView() : View("Panel użytkownika") {
                 addClass(StylesGlobal.menuItems)
                 action { selectedButton = buttonList[2] }
                 imageview(Image("changePassword.png"))
+
             }
 
         }
 
-        container = vbox {
-        }
+        container = vbox {  }
+
 
         selectedButton = buttonList[0]
 
@@ -52,13 +52,13 @@ class MainScreenView() : View("Panel użytkownika") {
         unMarkAll()
         when (button) {
             buttonList[0] -> {
-                mark(profileBtn); container.replaceChildren(ProfileFragment())
+                mark(profileBtn); container.replaceChildren(ProfileFragment());
             }
             buttonList[1] -> {
                 mark(addingWorkTimeBtn); container.replaceChildren(WorkTimerFragment())
             }
             buttonList[2] -> {
-                mark(passwordChangingBtn); container.replaceChildren(ManagePasswordFragment())
+                mark(passwordChangingBtn); container.replaceChildren(PasswordChangerFragment())
             }
         }
     }

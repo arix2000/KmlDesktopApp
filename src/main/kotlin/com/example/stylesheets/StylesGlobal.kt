@@ -30,7 +30,8 @@ class StylesGlobal : Stylesheet() {
         val profileValues by cssclass()
         val profileIcons by cssclass()
         val profileNestedLabels by cssclass()
-        val workTimerSpacers by cssclass()
+        val workTimerSpacers20 by cssclass()
+        val spacers60 by cssclass()
     }
 
     init {
@@ -152,8 +153,12 @@ class StylesGlobal : Stylesheet() {
             fontWeight = FontWeight.BOLD
         }
 
-        workTimerSpacers {
+        workTimerSpacers20 {
             maxHeight = 20.px
+        }
+
+        spacers60 {
+            maxHeight = 60.px
         }
 
 

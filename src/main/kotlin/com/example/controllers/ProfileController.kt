@@ -33,11 +33,6 @@ class ProfileController {
             Image("logo.png")
         }
 
-
-    fun logIn(login: String, password: String): Boolean {
-        TODO("log in")
-    }
-
     fun getUserInfoFromDatabase(): List<String> {
         val dbGetUserData = DbGetUserData()
         dbGetUserData.start()
@@ -53,6 +48,12 @@ class ProfileController {
              changedSection.substring(changedSection.indexOf("Wolontariusz")).trimIndent()
 
         return changedSection
+    }
+
+    fun setUserName(firstName:String, lastName:String)
+    {
+        GlobalVars.firstName = firstName
+        GlobalVars.lastName = lastName
     }
 
 

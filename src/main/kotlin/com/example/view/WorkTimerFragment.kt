@@ -3,8 +3,6 @@ package com.example.view
 import com.example.Work
 import com.example.controllers.WorkTimerController
 import com.example.stylesheets.StylesGlobal
-import javafx.beans.property.SimpleStringProperty
-import javafx.beans.value.ObservableStringValue
 import javafx.geometry.Pos
 import javafx.scene.control.TextField
 import javafx.scene.text.Text
@@ -29,28 +27,31 @@ class WorkTimerFragment : Fragment() {
             prefWidth = 684.px
         }
 
+        label("Dodaj nowe zadanie:") { addClass(StylesGlobal.profileMainLabels) }
 
-        text("Tytuł nowego zadania") { addClass(StylesGlobal.captions) }
+        spacer { addClass(StylesGlobal.spacers60) }
+
+        text("Tytuł nowego zadania:") { addClass(StylesGlobal.captions) }
         workName = textfield() { addClass(StylesGlobal.textFields) }
 
-        spacer { addClass(StylesGlobal.workTimerSpacers) }
+        spacer { addClass(StylesGlobal.workTimerSpacers20) }
 
-        text("Opis") { addClass(StylesGlobal.captions) }
+        text("Opis:") { addClass(StylesGlobal.captions) }
         workDescription = textfield() { addClass(StylesGlobal.textFields) }
 
-        spacer { addClass(StylesGlobal.workTimerSpacers) }
+        spacer { addClass(StylesGlobal.workTimerSpacers20) }
 
         hbox {
             alignment = Pos.CENTER
 
-            hours = textfield() { addClass(StylesGlobal.textFields); prefWidth = 70.0 }
+            hours = textfield { addClass(StylesGlobal.textFields); prefWidth = 70.0 }
             text("  godzin   ") { addClass(StylesGlobal.captions) }
 
-            minutes = textfield() { addClass(StylesGlobal.textFields); prefWidth = 70.0 }
+            minutes = textfield { addClass(StylesGlobal.textFields); prefWidth = 70.0 }
             text("  minut") { addClass(StylesGlobal.captions) }
         }
 
-        spacer { addClass(StylesGlobal.workTimerSpacers) }
+        spacer { addClass(StylesGlobal.workTimerSpacers20) }
 
         button("WYŚLIJ") {
             addClass(StylesGlobal.buttons)
@@ -64,7 +65,7 @@ class WorkTimerFragment : Fragment() {
             }
         }
 
-        spacer { addClass(StylesGlobal.workTimerSpacers) }
+        spacer { addClass(StylesGlobal.workTimerSpacers20) }
 
         resultText = text { addClass(StylesGlobal.captions); textAlignment = TextAlignment.CENTER }
 

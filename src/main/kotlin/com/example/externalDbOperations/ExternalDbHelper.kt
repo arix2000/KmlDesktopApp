@@ -10,12 +10,11 @@ import java.net.URL
 abstract class ExternalDbHelper : Thread() {
 
     companion object {
-        const val IO_EXCEPTION_TAG = "IO_EXCEPTION_TAG"
         const val BASE_URL = "http://sobos.ssd-linuxpl.com/"
     }
 
-    fun setConnection(address: String?): HttpURLConnection? {
-        var conn: HttpURLConnection? = null
+    fun setConnection(address: String?): HttpURLConnection {
+        lateinit var conn: HttpURLConnection
         try {
             val url = URL(address)
             conn = url.openConnection() as HttpURLConnection

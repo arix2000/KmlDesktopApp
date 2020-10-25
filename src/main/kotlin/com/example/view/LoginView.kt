@@ -17,7 +17,7 @@ class LoginView : View("KmlDesktopApp - Logowanie") {
     override val root = vbox {
         addClass(StylesGlobal.primaryStage)
 
-        imageview("/resources/logo.png") {
+        imageview("logo.png") {
             fitHeight = 150.0
             fitWidth = 200.0
             isPickOnBounds = true

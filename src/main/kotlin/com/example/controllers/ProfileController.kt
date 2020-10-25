@@ -30,7 +30,7 @@ class ProfileController {
         if (File(GlobalVars.PHOTO_FILE_NAME).exists()) {
             Image(FileInputStream(GlobalVars.PHOTO_FILE_NAME))
         } else {
-            Image("/resources/profilePhoto.png")
+            Image("profilePhoto.png")
         }
 
     fun getUserInfoFromDatabase(): List<String> {

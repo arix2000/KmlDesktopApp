@@ -63,7 +63,7 @@ class ProfileFragment : Fragment() {
 
             row {
 
-                imageview(Image("/resources/joinYear.png")) {
+                imageview(Image("joinYear.png")) {
                     addClass(StylesGlobal.profileIcons)
                 }
 
@@ -87,7 +87,7 @@ class ProfileFragment : Fragment() {
 
             row {
 
-                imageview(Image("/resources/workTimeSeason.png")) {
+                imageview(Image("workTimeSeason.png")) {
                     addClass(StylesGlobal.profileIcons)
                 }
 
@@ -104,7 +104,7 @@ class ProfileFragment : Fragment() {
 
             row {
 
-                imageview(Image("/resources/workTimeMonth.png")) {
+                imageview(Image("workTimeMonth.png")) {
                     addClass(StylesGlobal.profileIcons)
                 }
 

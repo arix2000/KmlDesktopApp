@@ -24,18 +24,18 @@ class MainScreenView() : View("Panel użytkownika") {
             profileBtn = button("Profil") {
                 addClass(StylesGlobal.menuItems)
                 action { selectedButton = buttonList[0] }
-                imageview(Image("profileIcon.png"))
+                imageview(Image("/resources/profileIcon.png"))
             }
             addingWorkTimeBtn = button("Dodawanie godzin") {
                 addClass(StylesGlobal.menuItems)
                 action { selectedButton = buttonList[1] }
-                imageview(Image("addWorkTime.png"))
+                imageview(Image("/resources/addWorkTime.png"))
             }
 
             passwordChangingBtn = button("Zmiana hasła") {
                 addClass(StylesGlobal.menuItems)
                 action { selectedButton = buttonList[2] }
-                imageview(Image("changePassword.png"))
+                imageview(Image("/resources/changePassword.png"))
 
             }
 

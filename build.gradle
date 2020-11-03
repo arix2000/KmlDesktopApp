@@ -1,22 +1,33 @@
-
-plugins {
-    id 'org.jetbrains.kotlin.jvm' version "1.4.0"
-    id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.8'
-    id 'org.beryx.jlink' version '2.12.0'
-}
-group = 'com.test'
-version = '1.0-SNAPSHOT'
-
-jar {
-    manifest {
-        attributes(
-                'Main-Class': 'com.example.Main'
-        )
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'no.tornado:fxlauncher-gradle-plugin:1.0.20'
     }
 }
+plugins {
+    id 'application'
+    id 'org.jetbrains.kotlin.jvm' version "1.4.0"
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+
+}
+apply plugin: 'java'
+apply plugin: 'no.tornado.fxlauncher'
+
+fxlauncher {
+    applicationVendor 'KML'
+    // Base URL where you will host the application artifacts
+    applicationUrl '/out/artifacts/KmlDesApp/'
+    applicationMainClass 'com.example.Main'
+    acceptDowngrade false
+    // Optional scp target for application artifacts hosted at the above url
+    deployTarget 'w48839@fxldemo.tornado.no:fxldemo'
+}
+
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
@@ -25,10 +36,11 @@ test {
 }
 
 application {
-    mainClassName = "com.example.MainKt"
+    mainClassName = "com.example.Main"
 }
 
 dependencies {
+    compile 'org.controlsfx:controlsfx:8.40.12'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation "no.tornado:tornadofx:$tornadofx_version"
     implementation 'org.openjfx:javafx-plugin:0.0.7'

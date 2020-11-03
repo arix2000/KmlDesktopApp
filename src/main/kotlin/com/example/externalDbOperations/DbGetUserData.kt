@@ -1,6 +1,6 @@
 package com.example.externalDbOperations
 
-import com.example.GlobalVars
+import com.example.app.GlobalVars
 import java.io.BufferedWriter
 import java.io.IOException
 import java.io.OutputStreamWriter

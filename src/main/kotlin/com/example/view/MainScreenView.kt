@@ -1,5 +1,6 @@
 package com.example.view
 
+import com.example.app.Strings
 import com.example.stylesheets.StylesGlobal
 import javafx.scene.control.Button
 import javafx.scene.image.Image
@@ -24,18 +25,18 @@ class MainScreenView() : View("Panel użytkownika") {
             profileBtn = button("Profil") {
                 addClass(StylesGlobal.menuItems)
                 action { selectedButton = buttonList[0] }
-                imageview(Image("profileIcon.png"))
+                imageview(Image(Strings.PROFILE_ICON))
             }
             addingWorkTimeBtn = button("Dodawanie godzin") {
                 addClass(StylesGlobal.menuItems)
                 action { selectedButton = buttonList[1] }
-                imageview(Image("addWorkTime.png"))
+                imageview(Image(Strings.ADD_WORK_TIME))
             }
 
             passwordChangingBtn = button("Zmiana hasła") {
                 addClass(StylesGlobal.menuItems)
                 action { selectedButton = buttonList[2] }
-                imageview(Image("changePassword.png"))
+                imageview(Image(Strings.CHANGE_PASSWORD))
 
             }
 

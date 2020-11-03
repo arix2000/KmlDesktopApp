@@ -1,9 +1,11 @@
 package com.example.view
 
+import com.example.app.Strings
 import com.example.controllers.LoginController
 import com.example.stylesheets.StylesGlobal
 import javafx.scene.control.PasswordField
 import javafx.scene.control.TextField
+import javafx.scene.image.Image
 import javafx.scene.text.Text
 import tornadofx.*
 
@@ -16,8 +18,9 @@ class LoginView : View("KmlDesktopApp - Logowanie") {
 
     override val root = vbox {
         addClass(StylesGlobal.primaryStage)
+        //primaryStage.icons.add(Image(LoginView::class.java.getResourceAsStream(Strings.MAIN_ICON)))
 
-        imageview("logo.png") {
+        imageview(Strings.LOGO) {
             fitHeight = 150.0
             fitWidth = 200.0
             isPickOnBounds = true

@@ -1,6 +1,6 @@
 package com.example.controllers
 
-import com.example.GlobalVars
+import com.example.app.GlobalVars
 import com.example.externalDbOperations.DbChangePass
 
 class PasswordChangerController {

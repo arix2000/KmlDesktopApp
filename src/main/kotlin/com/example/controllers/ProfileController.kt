@@ -1,6 +1,7 @@
 package com.example.controllers;
 
-import com.example.GlobalVars
+import com.example.app.GlobalVars
+import com.example.app.Strings
 import com.example.externalDbOperations.DbGetUserData
 import javafx.scene.image.Image
 import javafx.stage.FileChooser
@@ -22,7 +23,7 @@ class ProfileController {
     }
 
     private fun savePath(file: File) {
-        val profilePhoto = File("profilePhoto.png")
+        val profilePhoto = File(Strings.PROFILE_PHOTO)
         profilePhoto.writeBytes(file.readBytes())
     }
 
@@ -30,7 +31,7 @@ class ProfileController {
         if (File(GlobalVars.PHOTO_FILE_NAME).exists()) {
             Image(FileInputStream(GlobalVars.PHOTO_FILE_NAME))
         } else {
-            Image("profilePhoto.png")
+            Image(Strings.PROFILE_PHOTO)
         }
 
     fun getUserInfoFromDatabase(): List<String> {

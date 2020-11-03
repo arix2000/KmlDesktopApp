@@ -1,19 +1,10 @@
 package com.example.view
 
+import com.example.app.Strings
 import com.example.controllers.ProfileController
-import com.example.stylesheets.AppColors.Companion.BLACK
-import com.example.stylesheets.AppColors.Companion.PRIMARY
-import com.example.stylesheets.AppColors.Companion.PRIMARY_DARK
 import com.example.stylesheets.StylesGlobal
-import javafx.beans.property.SimpleStringProperty
-import javafx.beans.property.StringProperty
-import javafx.geometry.HPos
-import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.image.Image
-import javafx.scene.layout.*
-import javafx.scene.paint.Paint
-import javafx.scene.shape.Shape
 import javafx.scene.text.FontWeight
 import tornadofx.*
 
@@ -63,7 +54,7 @@ class ProfileFragment : Fragment() {
 
             row {
 
-                imageview(Image("joinYear.png")) {
+                imageview(Image(Strings.JOIN_YEAR)) {
                     addClass(StylesGlobal.profileIcons)
                 }
 
@@ -87,7 +78,7 @@ class ProfileFragment : Fragment() {
 
             row {
 
-                imageview(Image("workTimeSeason.png")) {
+                imageview(Image(Strings.WORK_TIME_SEASON)) {
                     addClass(StylesGlobal.profileIcons)
                 }
 
@@ -104,7 +95,7 @@ class ProfileFragment : Fragment() {
 
             row {
 
-                imageview(Image("workTimeMonth.png")) {
+                imageview(Image(Strings.WORK_TIME_MONTH)) {
                     addClass(StylesGlobal.profileIcons)
                 }
 

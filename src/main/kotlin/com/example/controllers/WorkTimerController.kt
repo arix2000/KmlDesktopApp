@@ -1,15 +1,15 @@
 package com.example.controllers
 
-import com.example.GlobalVars
-import com.example.Work
+import com.example.app.GlobalVars
+import com.example.models.Work
 import com.example.externalDbOperations.DbSendWork
 import tornadofx.isInt
-import java.lang.NumberFormatException
 
 class WorkTimerController {
 
     companion object {
         const val VALIDATION_SUCCESSFUL = "VALIDATION_SUCCESSFUL"
+        const val ADDING_SUCCESSFUL = "Dodano godziny pomyślnie"
     }
 
     fun resolveForm(work: Work):String {
@@ -17,7 +17,7 @@ class WorkTimerController {
         if (textToShow == VALIDATION_SUCCESSFUL) {
             val result = sendWorkToDatabase(work)
             textToShow = if (result) {
-                "Dodano godziny pomyślnie"
+                ADDING_SUCCESSFUL
             } else {
                 "Coś poszło nie tak! Sprawdź połączenie z internetem lub spróbuj ponownie później."
             }

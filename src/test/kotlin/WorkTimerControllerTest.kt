@@ -1,4 +1,4 @@
-import com.example.Work
+import com.example.models.Work
 import com.example.controllers.WorkTimerController
 import org.junit.jupiter.api.Test
 

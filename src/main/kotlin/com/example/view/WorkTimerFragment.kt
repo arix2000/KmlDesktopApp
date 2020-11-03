@@ -1,6 +1,6 @@
 package com.example.view
 
-import com.example.Work
+import com.example.models.Work
 import com.example.controllers.WorkTimerController
 import com.example.stylesheets.StylesGlobal
 import javafx.geometry.Pos
@@ -57,10 +57,13 @@ class WorkTimerFragment : Fragment() {
             addClass(StylesGlobal.buttons)
             action {
                 val work = Work(workName.text, workDescription.text, hours.text, minutes.text)
-
                 val textToShow = controller.resolveForm(work)
-
                 resultText.text = textToShow
+
+                if(textToShow == WorkTimerController.ADDING_SUCCESSFUL) {
+                    workName.clear(); workDescription.clear(); hours.clear(); minutes.clear()
+                }
+
                 thread { Thread.sleep(4000); resultText.text = "" }
             }
         }

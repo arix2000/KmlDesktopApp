@@ -5,7 +5,7 @@ import com.example.stylesheets.AppColors.Companion.MAIN_BG
 import com.example.stylesheets.StylesGlobal
 import tornadofx.*
 
-class WorksHistoryFragment : Fragment() {
+class WorkHistoryFragment : Fragment() {
 
     val controller = WorksHistoryController()
 
@@ -20,7 +20,7 @@ class WorksHistoryFragment : Fragment() {
             addClass(StylesGlobal.historyCellFormat)
         }
 
-        cellFragment(HistoryWorkItemFragment::class)
+        cellFragment(WorkHistoryItemFragment::class)
     }
 
 }

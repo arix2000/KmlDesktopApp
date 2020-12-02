@@ -1,21 +1,16 @@
 package com.example.view
 
-import com.example.models.HistoryWork
-import com.example.models.HistoryWorkViewModel
-import com.example.stylesheets.AppColors.Companion.PRIMARY_DARK
+import com.example.models.WorkHistory
+import com.example.models.WorkHistoryViewModel
 import com.example.stylesheets.StylesGlobal
 import javafx.geometry.Pos
-import javafx.scene.CacheHint
-import javafx.scene.Parent
 import javafx.scene.control.Label
-import javafx.scene.control.Tooltip
-import javafx.scene.paint.Paint
 import javafx.scene.text.Text
 import tornadofx.*
 
-class HistoryWorkItemFragment : ListCellFragment<HistoryWork>() {
+class WorkHistoryItemFragment : ListCellFragment<WorkHistory>() {
 
-    private val work = HistoryWorkViewModel().bindTo(this)
+    private val work = WorkHistoryViewModel().bindTo(this)
 
     lateinit var date: Label
     lateinit var workName: Text

@@ -5,7 +5,6 @@ import com.example.stylesheets.StylesGlobal
 import javafx.scene.control.Button
 import javafx.scene.image.Image
 import javafx.scene.layout.AnchorPane
-import javafx.scene.layout.VBox
 import tornadofx.*
 
 class MainScreenView() : View("Panel użytkownika") {
@@ -70,7 +69,7 @@ class MainScreenView() : View("Panel użytkownika") {
                 mark(passwordChangingBtn); container.replaceChildren(PasswordChangerFragment())
             }
             buttonList[3] -> {
-                mark(worksHistoryBtn); container.replaceChildren(WorksHistoryFragment())
+                mark(worksHistoryBtn); container.replaceChildren(WorkHistoryFragment())
             }
         }
     }

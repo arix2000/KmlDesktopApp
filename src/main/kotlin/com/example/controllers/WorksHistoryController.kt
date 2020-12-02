@@ -1,13 +1,13 @@
 package com.example.controllers
 
 import com.example.externalDbOperations.DbGetWorksHistory
-import com.example.models.HistoryWork
+import com.example.models.WorkHistory
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 class WorksHistoryController {
 
-    fun getWorksHistory(): List<HistoryWork>
+    fun getWorksHistory(): List<WorkHistory>
     {
         val dbGetWorksHistory = DbGetWorksHistory()
         dbGetWorksHistory.start()
@@ -16,9 +16,9 @@ class WorksHistoryController {
         return createListFromJson(historyJson)
     }
 
-    private fun createListFromJson(historyJson: String): List<HistoryWork> {
+    private fun createListFromJson(historyJson: String): List<WorkHistory> {
         val gson = Gson()
-        val type = object : TypeToken<List<HistoryWork>>() {}.type
+        val type = object : TypeToken<List<WorkHistory>>() {}.type
         return gson.fromJson(historyJson, type) ?: listOf()
     }
 }

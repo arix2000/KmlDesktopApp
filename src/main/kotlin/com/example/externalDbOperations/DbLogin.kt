@@ -6,20 +6,20 @@ import java.io.OutputStreamWriter
 import java.net.HttpURLConnection
 import java.net.URLEncoder
 
-class DbLogin(login: String, password: String) : ExternalDbHelper() {
+class DbLogin(val login: String, val password: String) : ExternalDbHelper() {
     private val fileName = "login.php"
     private lateinit var httpConnection: HttpURLConnection
-    var result: String = ""
-    get() { this.join(); return field}
-    private val address: String
-    private val login: String
-    private val password: String
+    private var result: String = ""
+       // get() { this.join(); return field }
+    private val address: String = BASE_URL + fileName
 
 
     override fun run() {
+        sleep(2000)
         httpConnection = setConnection(address)
         sendData()
         result = readResult(httpConnection)
+        onResultListener.onReceive(result)
     }
 
     private fun sendData() {
@@ -34,11 +34,5 @@ class DbLogin(login: String, password: String) : ExternalDbHelper() {
         } catch (e: IOException) {
             println("sendData: " + e.message)
         }
-    }
-
-    init {
-        address = BASE_URL + fileName
-        this.login = login
-        this.password = password
     }
 }

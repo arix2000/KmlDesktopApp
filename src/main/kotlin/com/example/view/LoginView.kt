@@ -1,11 +1,12 @@
 package com.example.view
 
+import com.example.app.GlobalVars
 import com.example.app.Strings
 import com.example.controllers.LoginController
 import com.example.stylesheets.StylesGlobal
 import javafx.scene.control.PasswordField
+import javafx.scene.control.ProgressIndicator
 import javafx.scene.control.TextField
-import javafx.scene.image.Image
 import javafx.scene.text.Text
 import tornadofx.*
 
@@ -15,6 +16,7 @@ class LoginView : View("KmlDesktopApp - Logowanie") {
     private var login = TextField()
     private var password = PasswordField()
     private val controller = LoginController()
+    private var progressBar = ProgressIndicator()
 
     override val root = vbox {
         addClass(StylesGlobal.primaryStage)
@@ -44,20 +46,30 @@ class LoginView : View("KmlDesktopApp - Logowanie") {
             addClass(StylesGlobal.buttons)
 
             action {
-                if(controller.logIn(login.text, password.text))
-                replaceWith(MainScreenView::class, ViewTransition.Slide(0.3.seconds, ViewTransition.Direction.LEFT))
-                else resultText.text = "Nie prawidłowy login lub hasło lub brak połączenia z internetem!"
+                progressBar.isVisible = true
+                controller.setOnResultListener {
+                    if (it)
+                        replaceWith(
+                            MainScreenView::class,
+                            ViewTransition.Slide(0.3.seconds, ViewTransition.Direction.LEFT)
+                        )
+                    else resultText.text = "Nie prawidłowy login lub hasło lub brak połączenia z internetem!"
+                    progressBar.isVisible = false
+                }
+                controller.logIn(login.text, password.text)
             }
         }
 
         resultText = text { addClass(StylesGlobal.captions) }
 
+        progressBar = progressindicator { addClass(StylesGlobal.progressIndicator) }
+
+
         tryToReturnLogData()
 
     }
 
-    private fun tryToReturnLogData()
-    {
+    private fun tryToReturnLogData() {
         val logData = controller.getLogData()
         if (logData.contains(";")) {
             val logDataList = logData.split(";")

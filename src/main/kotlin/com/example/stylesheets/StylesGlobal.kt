@@ -40,6 +40,7 @@ class StylesGlobal : Stylesheet() {
         val historyDescription by cssclass()
         val historyDate by cssclass()
         val historyCellFormat by cssclass()
+        val progressIndicator by cssclass()
     }
 
     init {
@@ -206,7 +207,12 @@ class StylesGlobal : Stylesheet() {
             backgroundColor = multi(MAIN_BG)
             borderWidth = multi(box(0.px))
             borderRadius = multi(box(12.px))
+        }
 
+        progressIndicator {
+            visibility = FXVisibility.HIDDEN
+            prefHeight = 34.px
+            prefWidth = 34.px
         }
 
 

@@ -1,13 +1,24 @@
 package com.example.externalDbOperations
 
+import com.example.OnResultListener
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import tornadofx.launch
+import tornadofx.runAsync
+import tornadofx.runLater
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStream
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
+import kotlin.concurrent.thread
 
 abstract class ExternalDbHelper : Thread() {
+
+    lateinit var onResultListener: OnResultListener
 
     companion object {
         const val BASE_URL = "http://sobos.ssd-linuxpl.com/"
@@ -44,5 +55,13 @@ abstract class ExternalDbHelper : Thread() {
             println("readResult: " + e.message)
         }
         return readResult.toString()
+    }
+
+    fun setOnResultListener(operation: (String) -> Unit) {
+        onResultListener = object : OnResultListener {
+            override fun onReceive(result: String) {
+                runLater {   operation(result)}
+            }
+        }
     }
 }

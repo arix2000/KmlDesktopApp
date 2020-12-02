@@ -10,7 +10,7 @@ import java.net.URLEncoder
 class DbGetWorksHistory : ExternalDbHelper() {
 
     private val fileName = "getWorkHistory.php"
-    private val address: String
+    private val address: String = BASE_URL + fileName
     var result: String = ""
         get() {join(); return field}
     private lateinit var conn: HttpURLConnection
@@ -40,7 +40,4 @@ class DbGetWorksHistory : ExternalDbHelper() {
         }
     }
 
-    init {
-        address = BASE_URL + fileName
-    }
 }

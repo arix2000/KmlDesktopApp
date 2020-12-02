@@ -11,7 +11,7 @@ import java.io.FileInputStream
 
 class ProfileController {
 
-    fun getImageFromDisk(window: Window?, image: Image): Image? {
+    fun getImageFromDisk(window: Window?, image: Image): Image {
 
         val file = FileChooser().showOpenDialog(window)
 
@@ -23,13 +23,13 @@ class ProfileController {
     }
 
     private fun savePath(file: File) {
-        val profilePhoto = File(Strings.PROFILE_PHOTO)
+        val profilePhoto = File(Strings.PHOTO_FILE_NAME)
         profilePhoto.writeBytes(file.readBytes())
     }
 
-    fun decideAboutImage(): Image? =
-        if (File(GlobalVars.PHOTO_FILE_NAME).exists()) {
-            Image(FileInputStream(GlobalVars.PHOTO_FILE_NAME))
+    fun decideAboutImage(): Image =
+        if (File(Strings.PHOTO_FILE_NAME).exists()) {
+            Image(FileInputStream(Strings.PHOTO_FILE_NAME))
         } else {
             Image(Strings.PROFILE_PHOTO)
         }

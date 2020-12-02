@@ -1,12 +1,15 @@
 package com.example.stylesheets
 
 import com.example.stylesheets.AppColors.Companion.ACCENT
+import com.example.stylesheets.AppColors.Companion.MAIN_BG
 import com.example.stylesheets.AppColors.Companion.PRIMARY
 import com.example.stylesheets.AppColors.Companion.PRIMARY_DARK
 import com.example.stylesheets.AppColors.Companion.TEXT_FIELD_FILL
 import com.example.stylesheets.AppColors.Companion.WHITE
 import javafx.geometry.Pos
 import javafx.scene.Cursor
+import javafx.scene.control.OverrunStyle
+import javafx.scene.paint.Color
 import javafx.scene.paint.Paint
 import javafx.scene.text.FontWeight
 import tornadofx.*
@@ -32,6 +35,11 @@ class StylesGlobal : Stylesheet() {
         val profileNestedLabels by cssclass()
         val workTimerSpacers20 by cssclass()
         val spacers60 by cssclass()
+        val itemContainer by cssclass()
+        val historyName by cssclass()
+        val historyDescription by cssclass()
+        val historyDate by cssclass()
+        val historyCellFormat by cssclass()
     }
 
     init {
@@ -42,7 +50,7 @@ class StylesGlobal : Stylesheet() {
 
         primaryStage {
             prefHeight = 660.px
-            prefWidth = 900.px
+            prefWidth = 1000.px
             alignment = Pos.CENTER
             spacing = 30.px
         }
@@ -74,7 +82,7 @@ class StylesGlobal : Stylesheet() {
         }
 
         menuItems {
-            prefWidth = 200.px
+            minWidth = 200.px
             backgroundColor = multi(PRIMARY_DARK)
             backgroundRadius = mainRadius
             padding = box(12.px)
@@ -159,6 +167,46 @@ class StylesGlobal : Stylesheet() {
 
         spacers60 {
             maxHeight = 60.px
+        }
+
+        itemContainer {
+            backgroundColor = multi(PRIMARY_DARK)
+            minWidth = 400.px
+            wrapText = true
+            backgroundRadius = mainRadius
+            borderRadius = mainRadius
+            padding = box(12.px)
+        }
+
+        historyName {
+            maxWidth = 500.px
+            textOverrun = OverrunStyle.ELLIPSIS
+            wrapText = true
+            fontSize = 17.px
+            fontWeight = FontWeight.BOLD
+            fill = Paint.valueOf("#3d5ce4")
+        }
+
+        historyDescription {
+            maxWidth = 670.px
+            fitToHeight = true
+            wrapText = true
+            textFill = PRIMARY
+        }
+
+        historyDate {
+            fontSize = 17.px
+            textFill = PRIMARY
+            fontWeight = FontWeight.BOLD
+            maxWidth = 500.px
+            textFill = PRIMARY
+        }
+
+        historyCellFormat {
+            backgroundColor = multi(MAIN_BG)
+            borderWidth = multi(box(0.px))
+            borderRadius = multi(box(12.px))
+
         }
 
 

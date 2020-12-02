@@ -11,6 +11,12 @@ object Strings {
     const val PROFILE_PHOTO = "profilePhoto.png"
     const val WORK_TIME_MONTH = "workTimeMonth.png"
     const val WORK_TIME_SEASON = "workTimeSeason.png"
+    const val WORKS_HISTORY_ICON = "worksHistory.png"
+    //       /resources/
+
+    const val PHOTO_FILE_NAME = "profilePhoto.png"
+
+    const val LOG_DATA = ".appData.txt"
 
 
 }

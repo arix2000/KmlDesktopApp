@@ -1,1 +1,4 @@
 /build/reports/tests/test/
+/build/*
+/out/*
+/build/

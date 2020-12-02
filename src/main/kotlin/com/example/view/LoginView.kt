@@ -18,7 +18,7 @@ class LoginView : View("KmlDesktopApp - Logowanie") {
 
     override val root = vbox {
         addClass(StylesGlobal.primaryStage)
-        //primaryStage.icons.add(Image(LoginView::class.java.getResourceAsStream(Strings.MAIN_ICON)))
+        //primaryStage.icons.add(Image(LoginView::class.java.getResourceAsStream(Strings.MAIN_ICON))) 
 
         imageview(Strings.LOGO) {
             fitHeight = 150.0
@@ -28,13 +28,13 @@ class LoginView : View("KmlDesktopApp - Logowanie") {
         }
 
 
-        login = textfield() {
+        login = textfield {
             promptText = "Login"
 
             addClass(StylesGlobal.textFields)
         }
 
-        password = passwordfield() {
+        password = passwordfield {
             promptText = "Hasło"
             addClass(StylesGlobal.textFields)
         }
@@ -52,6 +52,17 @@ class LoginView : View("KmlDesktopApp - Logowanie") {
 
         resultText = text { addClass(StylesGlobal.captions) }
 
+        tryToReturnLogData()
 
+    }
+
+    private fun tryToReturnLogData()
+    {
+        val logData = controller.getLogData()
+        if (logData.contains(";")) {
+            val logDataList = logData.split(";")
+            login.text = logDataList[0]
+            password.text = logDataList[1]
+        }
     }
 }

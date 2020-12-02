@@ -4,17 +4,19 @@ import com.example.app.Strings
 import com.example.stylesheets.StylesGlobal
 import javafx.scene.control.Button
 import javafx.scene.image.Image
+import javafx.scene.layout.AnchorPane
 import javafx.scene.layout.VBox
 import tornadofx.*
 
 class MainScreenView() : View("Panel użytkownika") {
-    private val buttonList = listOf("profile", "addingWorkTime", "passwordChanging")
+    private val buttonList = listOf("profile", "addingWorkTime", "passwordChanging", "worksHistory")
     lateinit var profileBtn: Button
     lateinit var addingWorkTimeBtn: Button
     lateinit var passwordChangingBtn: Button
+    lateinit var worksHistoryBtn: Button
     private var selectedButton: String = ""
         set(value) { selectChosen(value) }
-    lateinit var container: VBox
+    lateinit var container: AnchorPane
 
 
     override val root = hbox {
@@ -37,13 +39,19 @@ class MainScreenView() : View("Panel użytkownika") {
                 addClass(StylesGlobal.menuItems)
                 action { selectedButton = buttonList[2] }
                 imageview(Image(Strings.CHANGE_PASSWORD))
+            }
 
+            worksHistoryBtn = button("Historia zadań") {
+                addClass(StylesGlobal.menuItems)
+                action { selectedButton = buttonList[3] }
+                imageview(Image(Strings.WORKS_HISTORY_ICON))
             }
 
         }
 
-        container = vbox {  }
-
+        container = anchorpane {
+            fitToParentWidth()
+        }
 
         selectedButton = buttonList[0]
 
@@ -61,6 +69,9 @@ class MainScreenView() : View("Panel użytkownika") {
             buttonList[2] -> {
                 mark(passwordChangingBtn); container.replaceChildren(PasswordChangerFragment())
             }
+            buttonList[3] -> {
+                mark(worksHistoryBtn); container.replaceChildren(WorksHistoryFragment())
+            }
         }
     }
 
@@ -73,6 +84,7 @@ class MainScreenView() : View("Panel użytkownika") {
         unMark(profileBtn)
         unMark(addingWorkTimeBtn)
         unMark(passwordChangingBtn)
+        unMark(worksHistoryBtn)
     }
 
     private fun unMark(button: Button) {

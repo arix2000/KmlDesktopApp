@@ -9,7 +9,8 @@ buildscript {
 plugins {
     id 'application'
     id 'org.jetbrains.kotlin.jvm' version "1.4.0"
-    id 'org.openjfx.javafxplugin' version '0.0.8'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
+
 
 }
 apply plugin: 'java'
@@ -46,12 +47,14 @@ dependencies {
     implementation 'org.openjfx:javafx-plugin:0.0.7'
     implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
     implementation "org.jetbrains.kotlin:kotlin-reflect:1.1.0"
+    implementation 'com.google.code.gson:gson:2.8.5'
+
     testImplementation "org.jetbrains.kotlin:kotlin-test-junit"
 }
 
 javafx {
     version = "14"
-    modules = [ 'javafx.controls', 'javafx.fxml' ]
+    modules = ["javafx.controls", "javafx.fxml"]
 }
 
 compileKotlin {

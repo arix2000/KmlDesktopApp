@@ -21,11 +21,13 @@ class ProfileFragment : Fragment() {
 
     override val root = vbox {
         paddingAll = 10.0
-        alignment = Pos.CENTER
+        alignment = Pos.TOP_CENTER
         spacing = 10.0
+        anchorpaneConstraints { bottomAnchor = 0.0; leftAnchor = 0.0; rightAnchor = 0.0; topAnchor = 0.0 }
 
         hbox {
             spacing = 30.0
+            alignment = Pos.TOP_CENTER
             imageview {
                 alignment = Pos.TOP_LEFT
                 fitHeight = 200.0

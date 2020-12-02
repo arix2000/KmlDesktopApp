@@ -27,6 +27,8 @@ class WorkTimerFragment : Fragment() {
             prefWidth = 684.px
         }
 
+        anchorpaneConstraints { bottomAnchor = 0.0; leftAnchor = 0.0; rightAnchor = 0.0; topAnchor = 0.0 }
+
         label("Dodaj nowe zadanie:") { addClass(StylesGlobal.profileMainLabels) }
 
         spacer { addClass(StylesGlobal.spacers60) }

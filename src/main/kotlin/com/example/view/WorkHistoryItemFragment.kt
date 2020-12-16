@@ -13,6 +13,7 @@ class WorkHistoryItemFragment : ListCellFragment<WorkHistory>() {
     private val work = WorkHistoryViewModel().bindTo(this)
 
     lateinit var date: Label
+    lateinit var executionTime: Label
     lateinit var workName: Text
     lateinit var workDescription: Label
 
@@ -30,11 +31,15 @@ class WorkHistoryItemFragment : ListCellFragment<WorkHistory>() {
             workDescription = label(work.workDescription) {
                 addClass(StylesGlobal.historyDescription)
             }
-
         }
 
         date = label(work.date) {
             addClass(StylesGlobal.historyDate); alignment = Pos.TOP_RIGHT
+            anchorpaneConstraints { bottomAnchor = 0.0; leftAnchor = 0.0; rightAnchor = 0.0; topAnchor = 0.0 }
+        }
+
+        executionTime = label(work.executionTime) {
+            addClass(StylesGlobal.historyExecutionTime); alignment = Pos.BOTTOM_RIGHT
             anchorpaneConstraints { bottomAnchor = 0.0; leftAnchor = 0.0; rightAnchor = 0.0; topAnchor = 0.0 }
         }
 

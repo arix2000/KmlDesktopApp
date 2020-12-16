@@ -1,15 +1,17 @@
 package com.example.view
 
 import com.example.controllers.WorksHistoryController
+import com.example.models.WorkHistory
 import com.example.stylesheets.AppColors.Companion.MAIN_BG
 import com.example.stylesheets.StylesGlobal
+import javafx.collections.ObservableList
 import tornadofx.*
 
 class WorkHistoryFragment : Fragment() {
 
     val controller = WorksHistoryController()
 
-    val works = controller.getWorksHistory().asObservable()
+    var works:ObservableList<WorkHistory> = controller.getWorksHistory().asObservable()
 
     override val root = listview(works) {
         prefHeight = primaryStage.height

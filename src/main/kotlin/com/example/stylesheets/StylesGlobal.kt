@@ -6,13 +6,14 @@ import com.example.stylesheets.AppColors.Companion.PRIMARY
 import com.example.stylesheets.AppColors.Companion.PRIMARY_DARK
 import com.example.stylesheets.AppColors.Companion.TEXT_FIELD_FILL
 import com.example.stylesheets.AppColors.Companion.WHITE
+import javafx.geometry.HPos
 import javafx.geometry.Pos
 import javafx.scene.Cursor
 import javafx.scene.control.OverrunStyle
-import javafx.scene.paint.Color
 import javafx.scene.paint.Paint
 import javafx.scene.text.FontWeight
 import tornadofx.*
+import java.util.*
 
 class StylesGlobal : Stylesheet() {
 
@@ -24,23 +25,34 @@ class StylesGlobal : Stylesheet() {
         val textFields by cssclass()
         val buttons by cssclass()
         val spacers by cssclass()
+
         val menuItems by cssclass()
         val listMenu by cssclass()
         val menuItemsSelected by cssclass()
+
         val profileMainLabels by cssclass()
         val profileLabels by cssclass()
         val profileGridPane by cssclass()
         val profileValues by cssclass()
         val profileIcons by cssclass()
         val profileNestedLabels by cssclass()
+
         val workTimerSpacers20 by cssclass()
         val spacers60 by cssclass()
         val itemContainer by cssclass()
+
         val historyName by cssclass()
         val historyDescription by cssclass()
         val historyDate by cssclass()
+        val historyExecutionTime by cssclass()
         val historyCellFormat by cssclass()
+
         val progressIndicator by cssclass()
+        val mainProgressIndicator by cssclass()
+
+        val workDateEditor by cssclass()
+        val datePickerCell by cssclass()
+        val datePickerCellOtherMonth by cssclass()
     }
 
     init {
@@ -110,6 +122,7 @@ class StylesGlobal : Stylesheet() {
             backgroundColor = multi(PRIMARY_DARK)
             padding = box(8.px)
             labelPadding = box(8.px)
+            alignment = Pos.TOP_CENTER
         }
 
         profileMainLabels {
@@ -189,7 +202,7 @@ class StylesGlobal : Stylesheet() {
         }
 
         historyDescription {
-            maxWidth = 670.px
+            maxWidth = 600.px
             fitToHeight = true
             wrapText = true
             textFill = PRIMARY
@@ -200,6 +213,15 @@ class StylesGlobal : Stylesheet() {
             textFill = PRIMARY
             fontWeight = FontWeight.BOLD
             maxWidth = 500.px
+            textFill = PRIMARY
+        }
+
+        historyExecutionTime {
+            fontSize = 13.px
+            textFill = PRIMARY
+            fontWeight = FontWeight.BOLD
+            maxWidth = 500.px
+            padding = box(30.px,0.px,0.px,0.px)
             textFill = PRIMARY
         }
 
@@ -215,7 +237,28 @@ class StylesGlobal : Stylesheet() {
             prefWidth = 34.px
         }
 
+        mainProgressIndicator {
+            visibility = FXVisibility.HIDDEN
+            prefHeight = 34.px
+            prefWidth = 34.px
+        }
 
+        workDateEditor {
+            backgroundColor = multi(TEXT_FIELD_FILL)
+            textFill = PRIMARY
+        }
+
+        datePickerCell {
+            backgroundColor = multi(MAIN_BG)
+            textFill = PRIMARY
+            borderColor = multi(box(PRIMARY_DARK))
+        }
+
+        datePickerCellOtherMonth {
+            backgroundColor = multi(PRIMARY_DARK)
+            textFill = PRIMARY
+            borderColor = multi(box(PRIMARY_DARK))
+        }
     }
 }
 

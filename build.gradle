@@ -16,6 +16,9 @@ plugins {
 apply plugin: 'java'
 apply plugin: 'no.tornado.fxlauncher'
 
+
+
+
 fxlauncher {
     applicationVendor 'KML'
     // Base URL where you will host the application artifacts
@@ -41,7 +44,7 @@ application {
 }
 
 dependencies {
-    compile 'org.controlsfx:controlsfx:8.40.12'
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation "no.tornado:tornadofx:$tornadofx_version"
     implementation 'org.openjfx:javafx-plugin:0.0.7'
@@ -49,12 +52,14 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-reflect:1.1.0"
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2'
+    implementation 'org.jfxtras:jmetro:11.6.14-RC-05'
+
 
     testImplementation "org.jetbrains.kotlin:kotlin-test-junit"
 }
 
 javafx {
-    version = "14"
+    version = "15.0.1"
     modules = ["javafx.controls", "javafx.fxml"]
 }
 

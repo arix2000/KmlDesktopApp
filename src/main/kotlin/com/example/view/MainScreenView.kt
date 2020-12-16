@@ -2,12 +2,18 @@ package com.example.view
 
 import com.example.app.Strings
 import com.example.stylesheets.StylesGlobal
+import com.sun.javafx.scene.control.DatePickerContent
 import javafx.scene.control.Button
+import javafx.scene.control.DatePicker
+import javafx.scene.control.ProgressIndicator
 import javafx.scene.image.Image
 import javafx.scene.layout.AnchorPane
 import tornadofx.*
 
-class MainScreenView() : View("Panel użytkownika") {
+class MainScreenView : View("Panel użytkownika") {
+
+    companion object { lateinit var mainProgressBar: ProgressIndicator }
+
     private val buttonList = listOf("profile", "addingWorkTime", "passwordChanging", "worksHistory")
     lateinit var profileBtn: Button
     lateinit var addingWorkTimeBtn: Button
@@ -43,8 +49,13 @@ class MainScreenView() : View("Panel użytkownika") {
             worksHistoryBtn = button("Historia zadań") {
                 addClass(StylesGlobal.menuItems)
                 action { selectedButton = buttonList[3] }
-                imageview(Image(Strings.WORKS_HISTORY_ICON))
+                imageview(Image(Strings.WORKS_HISTORY_ICON))  //TODO  wyświetl też godzine :P
             }
+
+            spacer { addClass(StylesGlobal.workTimerSpacers20) }
+
+            mainProgressBar = progressindicator { addClass(StylesGlobal.mainProgressIndicator) }
+
 
         }
 

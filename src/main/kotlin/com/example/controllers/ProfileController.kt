@@ -13,7 +13,9 @@ class ProfileController {
 
     fun getImageFromDisk(window: Window?, image: Image): Image {
 
-        val file = FileChooser().showOpenDialog(window)
+        val fileChooser = FileChooser()
+        fileChooser.extensionFilters.addAll(FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"))
+        val file = fileChooser.showOpenDialog(window)
 
         return if (file != null) {
             savePath(file)
@@ -25,6 +27,11 @@ class ProfileController {
     private fun savePath(file: File) {
         val profilePhoto = File(Strings.PHOTO_FILE_NAME)
         profilePhoto.writeBytes(file.readBytes())
+    }
+
+    fun getResized(image: Image): Image //TODO resize throw null
+    {
+        return Image(image.url,0.0,300.0,true,true)
     }
 
     fun decideAboutImage(): Image =

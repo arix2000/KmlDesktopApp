@@ -1,7 +1,5 @@
 package com.example
 
-import tornadofx.*
-
 class Main {
 
     companion object

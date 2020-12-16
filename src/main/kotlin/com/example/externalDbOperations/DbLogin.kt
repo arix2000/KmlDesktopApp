@@ -15,7 +15,6 @@ class DbLogin(val login: String, val password: String) : ExternalDbHelper() {
 
 
     override fun run() {
-        sleep(2000)
         httpConnection = setConnection(address)
         sendData()
         result = readResult(httpConnection)

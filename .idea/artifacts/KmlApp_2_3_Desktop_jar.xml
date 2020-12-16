@@ -39,6 +39,9 @@
       <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.4.2/37993dc807ca253aa347be8968a0ae7b70642dbc/junit-platform-commons-1.4.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.controlsfx/controlsfx/8.40.12/68ea3c6a97296e77c843473dd74636b075b0b654/controlsfx-8.40.12.jar" path-in-jar="/" />
       <element id="dir-copy" path="$PROJECT_DIR$/src/main/resources" />
+      <element id="directory" name="jfxtras">
+        <element id="extracted-dir" path="$PROJECT_DIR$/../../../aStaff/javafx-sdk-11.0.2/jmetro-11.6.14.jar" path-in-jar="/jfxtras/" />
+      </element>
     </root>
   </artifact>
 </component>

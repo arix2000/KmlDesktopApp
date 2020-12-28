@@ -4,9 +4,12 @@ import com.example.app.GlobalVars
 import com.example.app.Strings
 import com.example.controllers.LoginController
 import com.example.stylesheets.StylesGlobal
+import javafx.event.EventType
 import javafx.scene.control.PasswordField
 import javafx.scene.control.ProgressIndicator
 import javafx.scene.control.TextField
+import javafx.scene.image.Image
+import javafx.scene.input.KeyCode
 import javafx.scene.text.Text
 import tornadofx.*
 
@@ -20,7 +23,12 @@ class LoginView : View("KmlDesktopApp - Logowanie") {
 
     override val root = vbox {
         addClass(StylesGlobal.primaryStage)
-        //primaryStage.icons.add(Image(LoginView::class.java.getResourceAsStream(Strings.MAIN_ICON))) 
+        primaryStage.icons.add(Image(Strings.MAIN_ICON))
+
+        setOnKeyPressed {
+            if (it.code == KeyCode.ENTER)
+                logIn()
+        }
 
         imageview(Strings.LOGO) {
             fitHeight = 150.0
@@ -31,32 +39,22 @@ class LoginView : View("KmlDesktopApp - Logowanie") {
 
 
         login = textfield {
-            promptText = "Login"
+            promptText = Strings.LOGIN
 
             addClass(StylesGlobal.textFields)
         }
 
         password = passwordfield {
-            promptText = "Hasło"
+            promptText = Strings.PASSWORD
             addClass(StylesGlobal.textFields)
         }
 
 
-        button("ZALOGUJ") {
+        button(Strings.LOG_IN) {
             addClass(StylesGlobal.buttons)
 
             action {
-                progressBar.isVisible = true
-                controller.setOnResultListener {
-                    if (it)
-                        replaceWith(
-                            MainScreenView::class,
-                            ViewTransition.Slide(0.3.seconds, ViewTransition.Direction.LEFT)
-                        )
-                    else resultText.text = "Nie prawidłowy login lub hasło lub brak połączenia z internetem!"
-                    progressBar.isVisible = false
-                }
-                controller.logIn(login.text, password.text)
+                logIn()
             }
         }
 
@@ -67,6 +65,20 @@ class LoginView : View("KmlDesktopApp - Logowanie") {
 
         tryToReturnLogData()
 
+    }
+
+    private fun logIn() {
+        progressBar.isVisible = true
+        controller.setOnResultListener {
+            if (it)
+                replaceWith(
+                    MainScreenView::class,
+                    ViewTransition.Slide(0.3.seconds, ViewTransition.Direction.LEFT)
+                )
+            else resultText.text = Strings.LOG_FAIL
+            progressBar.isVisible = false
+        }
+        controller.logIn(login.text, password.text)
     }
 
     private fun tryToReturnLogData() {

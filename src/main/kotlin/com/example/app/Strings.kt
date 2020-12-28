@@ -15,8 +15,12 @@ object Strings {
     //       /resources/
 
     const val PHOTO_FILE_NAME = "profilePhoto.png"
-
     const val LOG_DATA = ".appData.txt"
+
+    const val LOGIN = "Login"
+    const val PASSWORD = "Hasło"
+    const val LOG_IN = "Zaloguj"
+    const val LOG_FAIL = "Nie prawidłowy login lub hasło lub brak połączenia z internetem!"
 
 
 }

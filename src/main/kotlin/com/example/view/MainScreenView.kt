@@ -49,7 +49,7 @@ class MainScreenView : View("Panel użytkownika") {
             worksHistoryBtn = button("Historia zadań") {
                 addClass(StylesGlobal.menuItems)
                 action { selectedButton = buttonList[3] }
-                imageview(Image(Strings.WORKS_HISTORY_ICON))  //TODO  wyświetl też godzine :P
+                imageview(Image(Strings.WORKS_HISTORY_ICON))
             }
 
             spacer { addClass(StylesGlobal.workTimerSpacers20) }

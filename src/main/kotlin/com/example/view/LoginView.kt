@@ -1,10 +1,9 @@
 package com.example.view
 
-import com.example.app.GlobalVars
 import com.example.app.Strings
 import com.example.controllers.LoginController
 import com.example.stylesheets.StylesGlobal
-import javafx.event.EventType
+
 import javafx.scene.control.PasswordField
 import javafx.scene.control.ProgressIndicator
 import javafx.scene.control.TextField
@@ -12,6 +11,8 @@ import javafx.scene.image.Image
 import javafx.scene.input.KeyCode
 import javafx.scene.text.Text
 import tornadofx.*
+import javax.swing.JButton
+
 
 class LoginView : View("KmlDesktopApp - Logowanie") {
 

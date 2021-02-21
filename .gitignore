@@ -3,7 +3,7 @@
 /out/*
 /build/
 /.gradle
+/src/main/kotlin/com/example/externalDbOperations/ExternalDbHelper.kt
 .appData.txt
 
 profilePhoto.png
-/src/main/kotlin/com/example/externalDbOperations/ExternalDbHelper.kt

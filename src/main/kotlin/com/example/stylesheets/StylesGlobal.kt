@@ -14,6 +14,7 @@ import javafx.scene.paint.Paint
 import javafx.scene.text.FontWeight
 import tornadofx.*
 import java.util.*
+import kotlin.math.max
 
 class StylesGlobal : Stylesheet() {
 
@@ -63,7 +64,7 @@ class StylesGlobal : Stylesheet() {
 
         primaryStage {
             prefHeight = 660.px
-            prefWidth = 1000.px
+            prefWidth = 1050.px
             alignment = Pos.CENTER
             spacing = 30.px
         }
@@ -202,7 +203,8 @@ class StylesGlobal : Stylesheet() {
         }
 
         historyDescription {
-            maxWidth = 600.px
+            prefWidth = 200.px
+            maxWidth = 1500.px
             fitToHeight = true
             wrapText = true
             textFill = PRIMARY

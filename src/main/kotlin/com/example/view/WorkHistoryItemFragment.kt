@@ -3,8 +3,14 @@ package com.example.view
 import com.example.models.WorkHistory
 import com.example.models.WorkHistoryViewModel
 import com.example.stylesheets.StylesGlobal
+import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.control.Label
+import javafx.scene.layout.Background
+import javafx.scene.layout.BackgroundFill
+import javafx.scene.layout.CornerRadii
+import javafx.scene.layout.Priority
+import javafx.scene.paint.Paint
 import javafx.scene.text.Text
 import tornadofx.*
 
@@ -22,6 +28,7 @@ class WorkHistoryItemFragment : ListCellFragment<WorkHistory>() {
         vbox {
             anchorpaneConstraints { bottomAnchor = 0.0; leftAnchor = 0.0; rightAnchor = 0.0; topAnchor = 0.0 }
             alignment = Pos.TOP_LEFT
+            style { paddingRight = 100 }
 
             workName = text(work.workName) {
                 addClass(StylesGlobal.historyName)

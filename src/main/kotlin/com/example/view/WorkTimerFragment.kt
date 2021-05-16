@@ -70,7 +70,6 @@ class WorkTimerFragment : Fragment() {
             val metro = JMetro(Style.DARK)
             metro.parent = this
 
-
             value = LocalDate.now()
             converter = createOwnConverter()
             editor.addClass(StylesGlobal.workDateEditor)
